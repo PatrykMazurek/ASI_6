@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista komisji</title>
+</head>
+<body>
+    <div>
+        <h3> Lista komisji </h3>
+        <table>
+            <tr>
+                <th>Nazwa</th>
+                <th>Członkowie (funkcja)</th>
+                <th>Opis</th>
+                <th>Kontakt</th>
+            </tr>
+            <tr th:each="commission : ${commissions}">
+                <td th:text="${commission.name}"></td>
+                <td>
+                    <div th:each="member : ${commission.members}">
+                        <span th:text="${member.lastFirstName}"></span>
+                        <samp th:if th:text="'( '+ ${member.function} + ' )'"></samp>
+                    </div>
+                </td>
+                <td th:text="${commission.scope}"></td>
+                <td th:text="${commission.phone}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

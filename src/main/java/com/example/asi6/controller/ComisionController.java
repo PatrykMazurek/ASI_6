@@ -19,7 +19,7 @@ public class ComisionController {
     @GetMapping("/")
     public String showCommistion(Model model){
         model.addAttribute("commissions", commissionService.getAllCommissions());
-        return "index";
+        return "list_commission";
     }
 
 }
