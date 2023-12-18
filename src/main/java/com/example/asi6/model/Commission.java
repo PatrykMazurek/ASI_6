@@ -7,18 +7,26 @@ public class Commission {
     private String compositionDate;
     private Member[] members;
     private String name;
+    private String phone;
+    private String scope;
+    private String nameGenitive;
     private String type;
 
-    public Commission(){}
-
-    public Commission(String appointmentDate, String code, String compositionDate, Member[] members, String name, String type) {
+    public Commission(String appointmentDate, String code, String compositionDate, Member[] members, String name,
+            String phone, String scope, String nameGenitive, String type) {
         this.appointmentDate = appointmentDate;
         this.code = code;
         this.compositionDate = compositionDate;
         this.members = members;
         this.name = name;
+        this.phone = phone;
+        this.scope = scope;
+        this.nameGenitive = nameGenitive;
         this.type = type;
     }
+
+    public Commission(){}
+
     public String getAppointmentDate() {
         return appointmentDate;
     }
@@ -54,6 +62,30 @@ public class Commission {
     }
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getScope() {
+        return scope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope;
+    }
+
+    public String getNameGenitive() {
+        return nameGenitive;
+    }
+
+    public void setNameGenitive(String nameGenitive) {
+        this.nameGenitive = nameGenitive;
     }
 
 }

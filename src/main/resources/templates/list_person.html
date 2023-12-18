@@ -13,11 +13,13 @@
                 <th>Imię</th>
                 <th>Nazwisko</th>
                 <th>Wiek</th>
+                <th>Powiat</th>
             </tr>
             <tr th:each="person : ${persons}">
                 <td th:text="${person.firstName}"></td>
                 <td th:text="${person.lastName}"></td>
                 <td th:text="${person.age}"></td>
+                <td th:text="${person.region.powiat}"></td>
             </tr>
         </table>
     </div>

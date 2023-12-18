@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -28,14 +29,18 @@ public class Person {
     @Column(name = "age")
     private int age;
 
+    @ManyToOne
+    private Region region;
+
     public Person() {
     }
 
-    public Person(long id, String firstName, String lastName, int age) {
+    public Person(long id, String firstName, String lastName, int age, Region region) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.region = region;
     }
 
 
@@ -76,5 +81,13 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
     }
 }

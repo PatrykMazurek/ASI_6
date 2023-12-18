@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.example.asi6.model.Person;
 import com.example.asi6.service.PersonServiceImp;
+import com.example.asi6.service.RegionServiceImp;
 
 import jakarta.validation.Valid;
 
@@ -21,6 +22,9 @@ public class PersonController implements WebMvcConfigurer {
     
     @Autowired
     PersonServiceImp personService;
+
+    @Autowired
+    RegionServiceImp regionService;
 
     @GetMapping("/list")
     public String showAllPerson(Model model){
@@ -42,7 +46,9 @@ public class PersonController implements WebMvcConfigurer {
             if (bindingResult.hasErrors()){
                 return "new_person";
             }
+            p.setRegion(regionService.getRegion(1));
             personService.addPerson(p);
+
             return "redirect:/person/list";
         }
 }
